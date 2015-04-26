@@ -1,0 +1,10 @@
+{
+    "irc": {
+        "channel": "#gitcommits",
+        "network": [ "irc.freenode.net", 7777, "password" ],
+        "nickname": "gitbot",
+        "ssl": true
+    },
+
+    "sockaddr": "/tmp/.gitircsocket"
+}
