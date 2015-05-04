@@ -6,6 +6,7 @@ import os
 import select
 import socket
 import sys
+import time
 
 # required, otherwise irclib.ServerConnection.privmsg() fails when text contains
 # non-ascii char
@@ -68,6 +69,10 @@ def main(config):
 
     while True:
         irc_socket = bot.connection._get_socket()
+        if irc_socket is None:
+            time.sleep(1)
+            continue
+
         readable, _, _ = select.select([irc_socket, unix_socket], [], [])
         for sock in readable:
             if sock is unix_socket:
