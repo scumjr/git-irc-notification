@@ -13,6 +13,12 @@ Configuration
 The configuration is a JSON file. ``SOCKADDR`` variable in ``gitirc.sh`` must
 reflect value in JSON file.
 
+By default, only pushes on ``master`` branch are tracked. If you want to track
+several branches, modify the condition on ``ref_name`` in ``gitirc.sh``. For
+example, to watch ``master`` and ``dev`` : ::
+
+    if [ "$ref_name" = 'refs/heads/master' ] || [ "$ref_name" = 'refs/heads/dev' ]
+
 
 Installation
 ============
