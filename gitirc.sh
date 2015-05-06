@@ -15,7 +15,8 @@ do
 			else
 				repo=$(basename $(readlink -nf "$PWD/.."))
 			fi
-			git show --quiet --pretty="format:%Cred[$repo]%Creset %Cblue[%an]%Creset %s" "$commit" | nc -U $SOCKADDR
+			ref=$(basename "$ref_name")
+			git show --quiet --pretty="format:%Cred[$repo] %Cgreen[$ref] %Cblue[%an]%Creset %s" "$commit" | nc -U $SOCKADDR
 		done
     fi
 done
